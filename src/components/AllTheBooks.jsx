@@ -1,7 +1,7 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 // Importo il json per recuperare i dati dei libri
-import libri from "../jsonBooks/fantasy.json";
+import libri from "../data/fantasy.json";
 import { Col } from "react-bootstrap";
 
 function AllTheBooks() {
