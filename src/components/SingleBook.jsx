@@ -1,5 +1,6 @@
 import { Component } from "react";
-import { Col, Card, Button } from "react-bootstrap";
+import { Col, Card } from "react-bootstrap";
+import CommentArea from "../components/CommentArea";
 
 class SingleBook extends Component {
   // Aggiungo lo stato per sapere se il libro è selezionato o no.
@@ -13,7 +14,7 @@ class SingleBook extends Component {
           className="h-100 shadow-sm"
           // Se il libro è selezionato, applico dello stile aggiuntivo per evidenziarlo
           style={
-            this.state.selected
+            this.state.selected // All'inizio il libro NON è selezionato.
               ? { border: "3px solid red", boxShadow: "0 0 10px red" }
               : {}
           }
@@ -30,9 +31,13 @@ class SingleBook extends Component {
             <Card.Title>{this.props.libro.title}</Card.Title>
             <Card.Text>Categoria : {this.props.libro.category}</Card.Text>
             <Card.Text> Prezzo: {this.props.libro.price} €</Card.Text>
-            <Button variant="success" className="mt-auto">
+            {/* <Button variant="success" className="mb-auto">
               Maggiori Info
-            </Button>
+            </Button> */}
+            {/* se selected è vero, mostra CommentArea */}
+            {this.state.selected && (
+              <CommentArea asin={this.props.libro.asin} />
+            )}
           </Card.Body>
         </Card>
       </Col>
