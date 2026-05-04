@@ -11,10 +11,20 @@ class CommentArea extends Component {
   };
 
   // Questa funzione viene chiamata da sola appena il componente appare
-  componentDidMount = async () => {
-    this.getComments();
+  componentDidMount = () => {
+    if (this.props.asin) {
+      this.getComments();
+    }
   };
 
+  // Adesso attivo il componentdidupdate per ogni volta che booklist gli passa un nuovo asin
+  componentDidUpdate = (prevProps) => {
+    // IMPORTANTE: Devo controllare se l'ASIN è davvero diverso da quello di prima.
+    // // Se non faccio questo controllo, l'app entra in un loop infinito!
+    if (prevProps.asin !== this.props.asin) {
+      this.getComments();
+    }
+  };
   getComments = async () => {
     this.setState({ isLoading: true }); // Mostriamo lo spinner mentre aspettiamo la risposta.
     try {
