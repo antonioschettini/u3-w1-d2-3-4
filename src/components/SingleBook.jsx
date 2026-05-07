@@ -21,6 +21,7 @@ class SingleBook extends Component {
           }}
           // Quando clicco, chiamo la funzione che mi ha passato BookList
           onClick={() => this.props.changeSelectedAsin(this.props.libro.asin)}
+          data-testid="book-card"
         >
           <Card.Img
             variant="top"
@@ -32,7 +33,10 @@ class SingleBook extends Component {
           <Card.Body className="d-flex flex-column">
             <Card.Title>{this.props.libro.title}</Card.Title>
             <Card.Text>Categoria : {this.props.libro.category}</Card.Text>
-            <Card.Text className="mt-auto"> Prezzo: {this.props.libro.price} €</Card.Text>
+            <Card.Text className="mt-auto">
+              {" "}
+              Prezzo: {this.props.libro.price} €
+            </Card.Text>
             {/* <Button variant="success" className="mb-auto">
               Maggiori Info
             </Button> */}

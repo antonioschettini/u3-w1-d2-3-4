@@ -26,6 +26,7 @@ class BookList extends Component {
                 placeholder="Inserisci il titolo del libro.."
                 value={this.state.search} // Ogni volta che scriviamo qualcosa nella barra di ricerca, aggiorno lo stato con il valore attuale della ricerca.
                 onChange={(e) => this.setState({ search: e.target.value })}
+                data-testid="search-input"
               />
             </Form.Group>
           </Col>
@@ -64,6 +65,7 @@ class BookList extends Component {
             md={4}
             className="sticky-top"
             style={{ top: "20px", height: "fit-content" }}
+            data-testid="comment-area-container"
           >
             {/* Se c'è un asin selezionato mostro Commentarea, altrimenti un avviso */}
 

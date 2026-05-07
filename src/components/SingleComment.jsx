@@ -23,7 +23,10 @@ const SingleComment = (props) => {
     }
   };
   return (
-    <ListGroup.Item className="d-flex justify-content-between">
+    <ListGroup.Item
+      className="d-flex justify-content-between"
+      data-testid="single-comment"
+    >
       <span>
         {props.comment.rate}⭐ - {props.comment.comment}
       </span>
